@@ -1,4 +1,4 @@
-> [!IMPORTANT]
+> [!TIP]
 > Hola Ralph y Jonatan.\
 > He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos.\
 > ChadCN\
@@ -6,7 +6,7 @@
 > NextJS\
 > Jest\
 > Tailwind\
-> React Testing Library\
+> React Testing Library
 
 
 #### Development
