@@ -1,12 +1,12 @@
 > Hola Ralph y Jonatan. <br />
 > He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos. <br />
-> ChadCN__
-> Zustand <br />
-> NextJS  <br />
-> Jest <br />
-> Tailwind <br />
-> React Testing Library <br />
-<br /><br />
+> ChadCN\
+> Zustand\
+> NextJS\
+> Jest\
+> Tailwind\
+> React Testing Library\
+\
 
 #### Development
 
