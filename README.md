@@ -1,12 +1,12 @@
-> Hola Ralph y Jonatan. <br />
-> He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos. <br />
+> Hola Ralph y Jonatan.\
+> He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos.\
 > ChadCN\
 > Zustand\
 > NextJS\
 > Jest\
 > Tailwind\
 > React Testing Library\
-\
+
 
 #### Development
 
