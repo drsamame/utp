@@ -11,9 +11,9 @@ pnpm dev
 > [!NOTE]
  Hola Ralph y Jonatan.
 > He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos.
-> ChadCN
-> Zustand
-> NextJS
+ChadCN
+Zustand
+NextJS
 
 
 
