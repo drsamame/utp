@@ -1,6 +1,6 @@
 > Hola Ralph y Jonatan. <br />
 > He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos. <br />
-> ChadCN <br />
+> ChadCN --
 > Zustand <br />
 > NextJS  <br />
 > Jest <br />
