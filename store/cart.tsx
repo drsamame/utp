@@ -2,16 +2,22 @@ import { Product } from '@/types';
 import { create } from 'zustand';
 
 interface CounterState {
+	isOpenCart: boolean;
 	count: number;
-	title: string;
 	addProduct: (product: Product) => void;
+	removeProduct: (id: number) => void;
+	setOpenCart: (value: boolean) => void;
+	cleanAllCart: () => void;
 	products: Product[];
 }
 
 export const useCounterStore = create<CounterState>((set, get) => ({
 	count: 0,
-	title: 'Counter',
+	isOpenCart: false,
 	products: [],
+	cleanAllCart: () => {
+		set(() => ({ products: [], count: 0 }));
+	},
 	addProduct: (product: Product) => {
 		set((state) => {
 			const existProduct = state.products.find((el) => el.id === product.id);
@@ -32,6 +38,11 @@ export const useCounterStore = create<CounterState>((set, get) => ({
 				count: state.products.length - 1,
 				products: productsFiltered,
 			};
+		});
+	},
+	setOpenCart: (value: boolean) => {
+		set(() => {
+			return { isOpenCart: value };
 		});
 	},
 }));

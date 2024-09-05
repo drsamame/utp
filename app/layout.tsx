@@ -7,6 +7,7 @@ import './globals.css';
 
 import { cn } from '@/lib/utils';
 import ReactQueryProvider from '@/providers/TanstackProvider';
+import SideCart from '@/components/SideCart';
 
 const fontSans = Plus_Jakarta_Sans({
 	subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
 						<main>
 							<Header />
 							{children}
+							<SideCart />
 						</main>
 					</ThemeProvider>
 				</ReactQueryProvider>

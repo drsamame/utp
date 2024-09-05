@@ -2,22 +2,14 @@
 import React from 'react';
 import type { Product } from '@/types';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { DetailProductBtn } from '@/components/modals/DetailProduct';
-import { useCounterStore } from '@/store/cart';
+import AddToCartBtn from '@/components/AddToCartBtn';
 
 interface Props {
 	product: Product;
 	onClickDetail: () => void;
 }
 function Product({ product, onClickDetail }: Props) {
-	const { products } = useCounterStore((state) => ({
-		products: state.products,
-	}));
-	const { addProduct } = useCounterStore();
-	const handleClickAdd = () => {
-		addProduct(product);
-	};
 	return (
 		<article className="bg-blue-600">
 			<div className="w-full h-30 flex-center bg-white overflow-hidden p-2">
@@ -38,16 +30,7 @@ function Product({ product, onClickDetail }: Props) {
 				</span>
 				<div className="flex justify-between mt-7 gap-3">
 					<DetailProductBtn onClickDetail={onClickDetail} />
-
-					{products.some((p) => p.id === product.id) ? (
-						<Button variant="outline" className='border-red-400 ' onClick={handleClickAdd}>
-							<span className="text-12-regular text-red-400">Eliminar</span>
-						</Button>
-					) : (
-						<Button variant="outline" onClick={handleClickAdd}>
-							<span className="text-12-regular">Agregar</span>
-						</Button>
-					)}
+					<AddToCartBtn item={product} />
 				</div>
 			</div>
 		</article>

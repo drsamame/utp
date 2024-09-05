@@ -114,5 +114,12 @@
     @apply bg-dark-400 px-10 py-8 border-dark-500 !important;
   }
 
+  .shad-sheet {
+    @apply bg-dark-400 px-10 py-8 border-dark-500 !important;
+  }
+  .shad-sheet button{
+    @apply outline-none !important;
+  }
+
 
 }
