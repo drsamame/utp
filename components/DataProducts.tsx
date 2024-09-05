@@ -6,17 +6,24 @@ import { ModalDetail } from '@/components/modals/DetailProduct';
 import ProductItem from '@/components/Product';
 import { Product, ProductList } from '@/types';
 function DataProducts({ products }: { products: ProductList }) {
-	const [open, setOpen] = useState();
-	const [productSelected, setProductSelected] = useState<Product>(null);
+	const [open, setOpen] = useState<boolean>(false);
+	const [openSideCart, setOpenSideCart] = useState<boolean>(false);
+	const [productSelected, setProductSelected] = useState<Product | null>(null);
 
-	const handleClickDetail = (product: Product) => {
-		setProductSelected({ ...product });
-		console.log('handleClickDetail', product);
+	// Fetch from the client
+	const { data, isLoading, refetch, isRefetching } = useQuery({
+		queryKey: ['productSelected.id'],
+		queryFn: async () => await getProductById(productSelected!.id),
+	});
+
+	const handleClickDetail = async (product: Product) => {
+		await setProductSelected({ ...product });
+		refetch();
+		setOpen((prev) => !prev);
 	};
-
 	return (
 		<>
-			<div className="grid md:grid-cols-3 xl:grid-cols-5 grid-cols-1 gap-5  w-full content-start">
+			<div className="grid md:grid-cols-3 xl:grid-cols-5 grid-cols-1 gap-10  w-full content-start">
 				{products && (
 					<>
 						{products.map((product) => (
@@ -30,7 +37,13 @@ function DataProducts({ products }: { products: ProductList }) {
 				)}
 			</div>
 
-			<ModalDetail />
+			<ModalDetail
+				data={data as Product}
+				isOpen={setOpen}
+				open={open}
+				isLoading={isLoading}
+				isRefechting={isRefetching}
+			/>
 		</>
 	);
 }

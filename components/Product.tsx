@@ -1,19 +1,23 @@
 'use client';
 import React from 'react';
-import { getProducts } from '@/lib/data/product';
 import type { Product } from '@/types';
 import Image from 'next/image';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import { DetailProductBtn } from '@/components/modals/DetailProduct';
+import { useCounterStore } from '@/store/cart';
 
 interface Props {
 	product: Product;
 	onClickDetail: () => void;
 }
 function Product({ product, onClickDetail }: Props) {
+	const { addProduct } = useCounterStore();
+	const handleClickAdd = () => {
+		addProduct(product);
+	};
 	return (
 		<article className="bg-blue-600">
-			<div className="w-full h-80 flex-center bg-white overflow-hidden p-4">
+			<div className="w-full h-30 flex-center bg-white overflow-hidden p-2">
 				<Image
 					width={400}
 					height={400}
@@ -22,7 +26,7 @@ function Product({ product, onClickDetail }: Props) {
 				/>
 			</div>
 			<div className="body px-4 py-6">
-				<h2 className="text-16-medium line-clamp-1 ">{product.title}</h2>
+				<h2 className="text-16-semibold line-clamp-1 ">{product.title}</h2>
 				<p className="line-clamp-4 my-2 text-12-regular min-h-16">
 					{product.description}
 				</p>
@@ -30,8 +34,8 @@ function Product({ product, onClickDetail }: Props) {
 					S/{product.price}
 				</span>
 				<div className="flex justify-between mt-7 gap-3">
-					<DetailProductBtn onClickDetail={onClickDetail} isLoading={false} />
-					<Button variant="outline">
+					<DetailProductBtn onClickDetail={onClickDetail} />
+					<Button variant="outline" onClick={handleClickAdd}>
 						<span className="text-12-regular">Agregar</span>
 					</Button>
 				</div>

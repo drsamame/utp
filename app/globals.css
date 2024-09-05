@@ -111,15 +111,8 @@
 
  
   .shad-dialog {
-    @apply bg-dark-400 border-dark-500 !important;
+    @apply bg-dark-400 px-10 py-8 border-dark-500 !important;
   }
 
-  .shad-dialog button {
-    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-sheet-content button {
-    @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
 
 }

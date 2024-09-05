@@ -13,6 +13,9 @@ export interface Product {
 	category: string;
 	image: string;
 	rating: Rating;
+	rate: {
+		counter: number;
+	}
 }
 
 export type ProductList = Product[];

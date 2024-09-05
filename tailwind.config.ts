@@ -27,13 +27,9 @@ const config = {
           500: "#79B5EC",
           600: "#152432",
         },
-        red: {
-          500: "#F37877", 
-          600: "#3E1716",
-          700: "#F24E43",
-        },
         light: {
           200: "#E8E9E9",
+          300: "#e7e7e8"
         },
         dark: {
           200: "#0D0F10",
@@ -47,11 +43,6 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
-      backgroundImage: {
-        appointments: "url('/assets/images/appointments-bg.png')",
-        pending: "url('/assets/images/pending-bg.png')",
-        cancelled: "url('/assets/images/cancelled-bg.png')",
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,13 +1,13 @@
-import Product from '@/components/Product';
 import { getProducts } from '@/lib/data/product';
 
 import DataProducts from '@/components/DataProducts';
 import { ProductList } from '@/types';
+import { revalidatePath } from 'next/cache';
 export default async function Home() {
 	// Fetch products from the server
+	revalidatePath('/', 'layout')
 	const { data, success } = await getProducts();
-
-	// Fetch products from the client
+	
 
 	return (
 		<main className="flex container">
