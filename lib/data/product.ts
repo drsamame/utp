@@ -1,4 +1,4 @@
-import type { ProductList } from '@/types';
+import type { ProductList, Product } from '@/types';
 
 const backendApi = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
@@ -19,14 +19,15 @@ export const getProducts = async () => {
 	}
 };
 
-export const getProductById = async (id: string) => {
+export const getProductById = async (id: number) => {
 	try {
 		const apiUrl = `${backendApi}/products/${id}`;
 		const res = await fetch(apiUrl);
 		if (!res.ok) {
 			throw new Error('error 500');
 		}
-		const data: ProductList = await res.json();
+		const data: Product = await res.json();
+
 		return {
 			success: true,
 			data,

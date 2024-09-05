@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+
 import './globals.css';
 
 import { cn } from '@/lib/utils';
+import ReactQueryProvider from '@/providers/TanstackProvider';
 
 const fontSans = Plus_Jakarta_Sans({
 	subsets: ['latin'],
@@ -27,20 +28,23 @@ export default function RootLayout({
 		<html lang="es" suppressHydrationWarning>
 			<body
 				className={cn(
-					'min-h-screen bg-dark-300 font-sans antialiased',
+					'min-h-screen bg-dark-400 font-sans antialiased',
 					fontSans.variable
 				)}
 			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<Header />
-					{children}
-					<Footer />
-				</ThemeProvider>
+				<ReactQueryProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="dark"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<main>
+							<Header />
+							{children}
+						</main>
+					</ThemeProvider>
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);

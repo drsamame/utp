@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Icons } from '@/components/Icons';
 import NotificationCircle from '@/components/NotificationCircle';
 import { Button } from './ui/button';

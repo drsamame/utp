@@ -1,15 +1,16 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import { getProducts } from '@/lib/data/product';
 import type { Product } from '@/types';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import { DetailProductBtn } from '@/components/modals/DetailProduct';
 
-import { DetailProductModal } from '@/components/modals/DetailProduct';
 interface Props {
 	product: Product;
+	onClickDetail: () => void;
 }
-function Product({ product }: Props) {
-	const [open, setOpen] = useState(false);
+function Product({ product, onClickDetail }: Props) {
 	return (
 		<article className="bg-blue-600">
 			<div className="w-full h-80 flex-center bg-white overflow-hidden p-4">
@@ -29,7 +30,7 @@ function Product({ product }: Props) {
 					S/{product.price}
 				</span>
 				<div className="flex justify-between mt-7 gap-3">
-					<DetailProductModal />
+					<DetailProductBtn onClickDetail={onClickDetail} isLoading={false} />
 					<Button variant="outline">
 						<span className="text-12-regular">Agregar</span>
 					</Button>
