@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import type { Product } from '@/types';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { SkeletonCard } from '@/components/SkeletonProduct';
+import { useCounterStore } from '@/store/cart';
 export const DetailProductBtn = ({
 	onClickDetail,
 }: {
@@ -41,8 +42,16 @@ export const ModalDetail = ({
 	isLoading,
 	isRefechting,
 }: PropsModalDetail) => {
+	const { products } = useCounterStore((state) => ({
+		products: state.products,
+	}));
+	const { addProduct } = useCounterStore();
+	const handleClickAdd = () => {
+		addProduct(data);
+	};
 	return (
 		<Dialog open={open} onOpenChange={isOpen}>
+			<DialogTitle>Detail</DialogTitle>
 			<DialogContent className="shad-dialog sm:max-w-md">
 				{isLoading || isRefechting ? (
 					<SkeletonCard />
@@ -57,12 +66,12 @@ export const ModalDetail = ({
 							/>
 						</div>
 						<div className="py-6">
-							<DialogTitle className="flex justify-between gap-8 items-start mb-4">
+							<div className="flex justify-between gap-8 items-start mb-4">
 								<span className="text-16-semibold">{data?.title}</span>
 								<span className="text-24-bold relative text-right block">
 									S/{data?.price}
 								</span>
-							</DialogTitle>
+							</div>
 							<p className="my-2 text-12-regular">{data?.description}</p>
 							<h5 className="text-16-semibold mt-7">Información Adicional</h5>
 							<p className=" text-12-regular">
@@ -74,9 +83,21 @@ export const ModalDetail = ({
 								{data?.rating?.rate} ⭐
 							</p>
 							<div className="flex justify-end mt-7 gap-3">
-								<Button variant="outline">
-									<span className="text-12-regular">Agregar</span>
-								</Button>
+								{products.some((p) => p.id === data?.id) ? (
+									<Button
+										variant="outline"
+										className="border-red-400 "
+										onClick={handleClickAdd}
+									>
+										<span className="text-12-regular text-red-400">
+											Eliminar
+										</span>
+									</Button>
+								) : (
+									<Button variant="outline" onClick={handleClickAdd}>
+										<span className="text-12-regular">Agregar</span>
+									</Button>
+								)}
 							</div>
 						</div>
 					</>

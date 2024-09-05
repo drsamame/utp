@@ -34,7 +34,6 @@ export const getProductById = async (id: number) => {
 		console.log(id, allProducts);
 		await new Promise((resolve) => setTimeout(resolve, 500));
 		const selecteProduct = allProducts.find((product) => product.id == id);
-		console.log(selecteProduct, 'oeee');
 		return selecteProduct;
 	} catch (error: any) {
 		return { success: false, error };

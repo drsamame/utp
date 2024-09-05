@@ -25,8 +25,13 @@ export const useCounterStore = create<CounterState>((set, get) => ({
 			}
 		});
 	},
-	removeProduct: (id: number) =>
-		set((state) => ({
-			// products: state.products.filter(product => product.id !== id),
-		})),
+	removeProduct: (id: number) => {
+		set((state) => {
+			const productsFiltered = state.products.filter((a) => a.id !== id);
+			return {
+				count: state.products.length - 1,
+				products: productsFiltered,
+			};
+		});
+	},
 }));

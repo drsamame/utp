@@ -11,6 +11,9 @@ interface Props {
 	onClickDetail: () => void;
 }
 function Product({ product, onClickDetail }: Props) {
+	const { products } = useCounterStore((state) => ({
+		products: state.products,
+	}));
 	const { addProduct } = useCounterStore();
 	const handleClickAdd = () => {
 		addProduct(product);
@@ -35,9 +38,16 @@ function Product({ product, onClickDetail }: Props) {
 				</span>
 				<div className="flex justify-between mt-7 gap-3">
 					<DetailProductBtn onClickDetail={onClickDetail} />
-					<Button variant="outline" onClick={handleClickAdd}>
-						<span className="text-12-regular">Agregar</span>
-					</Button>
+
+					{products.some((p) => p.id === product.id) ? (
+						<Button variant="outline" className='border-red-400 ' onClick={handleClickAdd}>
+							<span className="text-12-regular text-red-400">Eliminar</span>
+						</Button>
+					) : (
+						<Button variant="outline" onClick={handleClickAdd}>
+							<span className="text-12-regular">Agregar</span>
+						</Button>
+					)}
 				</div>
 			</div>
 		</article>

@@ -12,6 +12,7 @@ function DataProducts({ products }: { products: ProductList }) {
 
 	// Fetch from the client
 	const { data, isLoading, refetch, isRefetching } = useQuery({
+		refetchInterval: 120000, 
 		queryKey: ['productSelected.id'],
 		queryFn: async () => await getProductById(productSelected!.id),
 	});
