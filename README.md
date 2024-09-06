@@ -7,7 +7,7 @@
 > Sustand: Fetching y cacheo data a nivel cliente \
 > Jest: Testing \
 > Tailwind: Estilos del carrito \
-> React Testing Library: Testing \
+> React Testing Library: Testing 
 
 
 #### Development
