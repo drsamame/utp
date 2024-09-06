@@ -1,6 +1,6 @@
 > [!TIP]
 > Hola Ralph y Jonatan. \
-> El fetching de datos han quedado comentados porque se cayó el servidor de https://fakestoreapi.com/ \\
+> El fetching de datos han quedado comentados porque se cayó el servidor de https://fakestoreapi.com/ \
 > \
 > He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos.\
 > ChadCN: Librería basada en Radix UI \
