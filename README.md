@@ -1,4 +1,4 @@
-> [!TIP]
+> [!INFO]
 > Hola Ralph y Jonatan.
 > He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos.\
 > ChadCN: Librería basada en Radix UI \
