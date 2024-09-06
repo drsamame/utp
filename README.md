@@ -1,3 +1,14 @@
+> [!INFO]
+> Estimados Ralph y Jonatan.\
+> El fetching de data tienen un delay para apreciar los estados de carga
+> He usado las siguientes técnologias sobredimensionadas para la HU por fines demostrativos.\
+> ChadCN\
+> Zustand\
+> NextJS\
+> Jest\
+> Tailwind\
+> React Testing Library
+=======
 > [!TIP]
 > Hola Ralph y Jonatan. \
 > El fetching de datos han quedado comentados porque se cayó el servidor de https://fakestoreapi.com/ \
@@ -21,7 +32,6 @@ pnpm install
 pnpm dev
 pnpm test
 ```
-
 
 
 
