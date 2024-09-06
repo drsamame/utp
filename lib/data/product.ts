@@ -31,7 +31,6 @@ export const getProductById = async (id: number) => {
 		// 	throw new Error('error 500');
 		// }
 		// const data: Product = await res.json();
-		console.log(id, allProducts);
 		await new Promise((resolve) => setTimeout(resolve, 500));
 		const selecteProduct = allProducts.find((product) => product.id == id);
 		return selecteProduct;

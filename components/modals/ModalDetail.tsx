@@ -3,12 +3,11 @@ import Image from 'next/image';
 import type { Product } from '@/types';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { SkeletonCard } from '@/components/SkeletonProduct';
-import { useCounterStore } from '@/store/cart';
 import AddToCartBtn from '@/components/AddToCartBtn';
 
 interface PropsModalDetail {
 	data: Product;
-	isOpen: (isOpen: boolean) => void;
+	isOpen?: (isOpen: boolean) => void;
 	open: boolean;
 	isLoading: boolean;
 	isRefechting: boolean;
@@ -20,14 +19,9 @@ export const ModalDetail = ({
 	isLoading,
 	isRefechting,
 }: PropsModalDetail) => {
-	const { products } = useCounterStore((state) => ({
-		products: state.products,
-	}));
-	const { addProduct } = useCounterStore();
-
 	return (
 		<Dialog open={open} onOpenChange={isOpen}>
-			<DialogTitle>Detail</DialogTitle>
+			<DialogTitle />
 			<DialogContent className="shad-dialog sm:max-w-md">
 				{isLoading || isRefechting ? (
 					<SkeletonCard />
