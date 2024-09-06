@@ -5,9 +5,9 @@ import { getProductById } from '@/lib/data/product';
 import { ModalDetail } from '@/components/modals/ModalDetail';
 import ProductItem from '@/components/Product';
 import { Product, ProductList } from '@/types';
+
 function DataProducts({ products }: { products: ProductList }) {
 	const [open, setOpen] = useState<boolean>(false);
-	const [openSideCart, setOpenSideCart] = useState<boolean>(false);
 	const [productSelected, setProductSelected] = useState<Product | null>(null);
 
 	// Fetch from the client
