@@ -1,5 +1,5 @@
 > [!TIP]
-> Hola Ralph y Jonatan. \
+
 > El fetching de datos han quedado comentados porque se cayó el servidor de https://fakestoreapi.com/ \
 > El punto opcional del los modales de confirmación no los puse para que se pueda apreciar mejor la hidratación de estado en todo el carrito. \
 > Le he dejado un pequeño delay en las respuesta de servicios para poder apreciar los estados de carga. \
